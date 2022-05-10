@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, Spin, Table } from "antd";
 import axios from "axios";
 import Pagination from "./Pagination";
-import { Spinner } from "react-bootstrap";
 const TablePage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [airlelineDetail, setAirlelineDetail] = useState({
@@ -32,7 +31,6 @@ const TablePage = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage] = useState(20);
-
   const lastIndex = currentPage * usersPerPage;
   const firstIndex = lastIndex - usersPerPage;
   const allUsers = usersData.slice(firstIndex, lastIndex);
@@ -44,7 +42,7 @@ const TablePage = () => {
       key: "name",
       width: 400,
       render: (text) => (
-        <a href="#" style={{ textDecoration: "none" }}>
+        <a href="/#" style={{ textDecoration: "none" }}>
           {text}
         </a>
       ),
@@ -99,7 +97,7 @@ const TablePage = () => {
           <h5 style={{marginTop:'10px'}}>Name: {airlelineDetail.name}</h5>
           <p>Country: {airlelineDetail.country}</p>
           <p>Established: {airlelineDetail.established} </p>
-          <p>Website: <a href={airlelineDetail.website} target="_blank">{airlelineDetail.website}</a> </p>
+          <p>Website: <a href={airlelineDetail.website} target="_blank" rel="noreferrer">{airlelineDetail.website}</a> </p>
           
         </div>
   
